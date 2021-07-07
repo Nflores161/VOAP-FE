@@ -1,38 +1,111 @@
-.App {
+html, body {
+  margin: auto;
+  max-width: 95%;
+}
+
+.jumbotron {
+  background: white url("https://cdn.mos.cms.futurecdn.net/rDoUdp5ASgqnTpYLGvkyDF-970-80.jpg.webp") no-repeat center;
+  background-size: cover;
+  font-family: 'Permanent Marker', cursive;
+  box-shadow: 0 0 10px black inset;
+}
+
+#navSearchBar {
+  margin-right: 5em;
+}
+h1 {
+
   text-align: center;
+  font-weight: 600;
+  font-family: 'Permanent Marker', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.secondHeader{
+  color: black;
+  font-weight: 600;
+  font-size: 3em;
+}
+.secondHeader2{
+  color: rgb(68, 67, 67);
+  font-weight: 600;
+  font-size: 4em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+
+h1 span span {
+  color: rgb(143, 138, 138);
+  text-shadow: 6px 5px 5px rgb(0, 0, 0);
+  position: relative;
+  bottom: -1em;
+  opacity: 0;
+  animation: move-text 0.75s forwards;
+  font-size: 5em;
+}
+h1 span span:nth-child(2n) { color: rgb(114, 111, 111); }
+h1 span span:nth-child(3n) { color: rgb(88, 85, 85); }
+h1 span span:nth-child(4n) { color: rgb(126, 125, 125); }
+h1 span span:nth-child(5n) { color: rgb(172, 169, 169); }
+
+@keyframes move-text {
+  0% {
+    bottom: -0.2em;
+    opacity: 1;
+  }
+  
+  50% {
+    bottom: 0.2em;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 500px) {
+  body {
+    transform: scale(0.75);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Featured Artist Image Pulse */
+
+.pulse {
+  border: #000000 solid thin;
+  margin: auto;
+  display: block;
+  width: 70%;
+  height: 70%;
+  background: #000000;
+  box-shadow: 0 0 2px rgba(170, 169, 163, 0.4) inset;
+  animation: pulse 1.5s infinite;
+}
+
+@-webkit-keyframes pulse {
+  30% {
+    -webkit-box-shadow: 0 0 0 0 rgba(7, 7, 7, 0.4);
+  }
+  80% {
+      -webkit-box-shadow: 0 0 0 3px rgba(20, 20, 20, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes pulse {
+  20% {
+    -moz-box-shadow: 0 0 0 0 rgba(44, 44, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(29, 29, 29, 0.4);
+  }
+  80% {
+      -moz-box-shadow: 0 0 0 3px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 3px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
   }
 }
