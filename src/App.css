@@ -1,20 +1,36 @@
 html, body {
   margin: auto;
-  max-width: 95%;
+  /* max-width: 95%; */
+  /* position: relative; */
 }
+/* 
+body:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);
+  width: 100%;
+  height: .3em; 
+} */
+
 
 .jumbotron {
-  background: white url("https://cdn.mos.cms.futurecdn.net/rDoUdp5ASgqnTpYLGvkyDF-970-80.jpg.webp") no-repeat center;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%,rgba(255,153,153,0) 20%,rgb(255, 255, 255) 80%), url("https://cdn.mos.cms.futurecdn.net/rDoUdp5ASgqnTpYLGvkyDF-970-80.jpg.webp");
   background-size: cover;
   font-family: 'Permanent Marker', cursive;
-  box-shadow: 0 0 10px black inset;
+  /* box-shadow: 0 0 10px black inset; */
+  background-position: center;
+  background-size: cover;
 }
+
 
 #navSearchBar {
   margin-right: 5em;
 }
 h1 {
-
   text-align: center;
   font-weight: 600;
   font-family: 'Permanent Marker', cursive;

@@ -13,11 +13,12 @@ import SplitText from "../Component/SplitText"
       <Jumbotron style={{textAlign : "center", color: "white"}}>
           <h1><SplitText copy="V.O.A.P." role="heading" /></h1>
         <h2 className="secondHeader" >Victims of An Art Page</h2>
+        <h3>your art, your way</h3>
       </Jumbotron>
       <div>
 
 
-        <div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", marginBottom : "5em"}}>
+        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center", marginBottom : "5em"}}>
         <FeaturedArtist loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
         <ArtBlock/>
         </div>
