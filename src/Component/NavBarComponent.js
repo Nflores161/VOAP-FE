@@ -12,17 +12,20 @@ export default class NavBarComponent extends Component {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/explore">
+            <Nav.Link as={Link} to="/users">
               Explore
             </Nav.Link>
+            
+            {localStorage.token ? (
             <Nav.Link as={Link} to="/myprofile">
               My Profile
             </Nav.Link>
+            ) : " "}
           </Nav>
-          <Form inline id="navSearchBar">
+          {/* <Form inline id="navSearchBar">
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-dark">Search</Button>
-          </Form>
+          </Form> */}
           {localStorage.token ? (
             <Button
               variant="outline-dark"

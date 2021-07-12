@@ -1,6 +1,6 @@
 html, body {
   margin: auto;
-  /* max-width: 95%; */
+  max-width: 95%;
   /* position: relative; */
 }
 /* 
@@ -105,7 +105,7 @@ h1 span span:nth-child(5n) { color: rgb(172, 169, 169); }
     -webkit-box-shadow: 0 0 0 0 rgba(7, 7, 7, 0.4);
   }
   80% {
-      -webkit-box-shadow: 0 0 0 3px rgba(20, 20, 20, 0);
+      -webkit-box-shadow: 0 0 0 9px rgba(20, 20, 20, 0);
   }
   100% {
       -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
@@ -117,11 +117,152 @@ h1 span span:nth-child(5n) { color: rgb(172, 169, 169); }
     box-shadow: 0 0 0 0 rgba(29, 29, 29, 0.4);
   }
   80% {
-      -moz-box-shadow: 0 0 0 3px rgba(204,169,44, 0);
-      box-shadow: 0 0 0 3px rgba(204,169,44, 0);
+      -moz-box-shadow: 0 0 0 9px rgba(204,169,44, 0);
+      box-shadow: 0 0 0 9px rgba(204,169,44, 0);
   }
   100% {
       -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
       box-shadow: 0 0 0 0 rgba(204,169,44, 0);
   }
 }
+
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+/* Form */
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .Login Form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+/* Explore Container */
+
+.exploreBg {
+  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6208f106-928e-47bb-80b1-ce55b9e82b98/d33wrsf-13a062e0-a929-4c26-80f1-98356244e6f6.jpg/v1/fill/w_1024,h_768,q_75,strp/metal_surface_texture_2_by_fantasystock_d33wrsf-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzY4IiwicGF0aCI6IlwvZlwvNjIwOGYxMDYtOTI4ZS00N2JiLTgwYjEtY2U1NWI5ZTgyYjk4XC9kMzN3cnNmLTEzYTA2MmUwLWE5MjktNGMyNi04MGYxLTk4MzU2MjQ0ZTZmNi5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Q8gwNtDSkiwhtZ8j_WNraiz34XbJ4R022lblwBjT5gw");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+/* Div Scroll Bar on Profile Page */
+
+.itemconfiguration
+{
+    height: 80%;
+    width: 70%;
+    overflow-y: auto;
+    float: left;
+    position: relative;
+}
+
+.left_contentlist
+{
+    margin-top: 2em;
+    width:50%;
+    float:left;
+    padding:0 0 0 5px;
+    position:relative;
+    float:left;
+}
+
+/* punk dude rocking */
+
+#rocker {
+  -webkit-animation: rocker 2s infinite; /* Safari 4+ */
+  -moz-animation:    rocker 2s infinite; /* Fx 2+ */
+  -o-animation:      rocker 2s infinite; /* Opera 12+ */
+  animation:         rocker 2s infinite; /* IE 10+, Fx 29+ */
+  height: 40%;
+  width: 40%;
+}
+
+@keyframes rocker {
+  0%   { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  50% { transform: rotate(-20deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Drag Drop */
+.drag-container {
+  text-align: center;
+}
+
+.head {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background-color: #CCCCCC;
+  width:100%;
+}
+
+.droppable {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: 0;
+  top: 10;
+  background-color: #9E9E9E;
+  border-left: 2px dotted red;
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  margin: 10px auto;
+}
+
+.inProgress {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 0;
+  top: 10;
+  background-color: #EEEEEE;
+  border-right: 2px dotted red;
+}
+

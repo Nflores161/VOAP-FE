@@ -10,8 +10,8 @@ export default class SignUp extends Component {
       password: "",
       location: "",
       bio: "",
-      forum_post: "",
-      creator: "",
+      art_type: "",
+      genre: "",
       profile_pic_url: "",
     }
 
@@ -23,6 +23,7 @@ export default class SignUp extends Component {
         console.log(this.state.location);
         console.log(this.state.bio);
         console.log(this.state.profile_pic_url);
+        console.log(this.state.genre)
     }
 
     render() {
@@ -64,17 +65,40 @@ export default class SignUp extends Component {
                     <Form.Group >
                         <Form.Label>Username</Form.Label>
                         <Form>
-                            <Form.Row>
+                            <Form.Row style={{marginBottom: "2em"}}>
                                 <Col>
-                                    <Form.Control placeholder="First name" onChange={e => this.setState({ name: e.target.value })} />
+                                    <Form.Control placeholder="Username, real name, artist alias here" onChange={e => this.setState({ name: e.target.value })} />
                                 </Col>
+                            </Form.Row> 
+
+                            <Form.Row style={{marginBottom: "2em"}}> 
                                 <Col>
-                                    <Form.Control placeholder="Bio" onChange={e => this.setState({ bio: e.target.value })} />
+                                    <Form.Label>Bio</Form.Label>
+                                    <Form.Control placeholder="Write a short bio or quote about yourself" onChange={e => this.setState({ bio: e.target.value })} />
                                 </Col>
+                            </Form.Row> 
+
+                            <Form.Row style={{marginBottom: "2em"}}>    
                                 <Col>
-                                    <Form.Control placeholder="Location" onChange={e => this.setState({ location: e.target.value })} />
+                                    <Form.Label>Location</Form.Label>
+                                    <Form.Control placeholder="Alien from Space? Planet required." onChange={e => this.setState({ location: e.target.value })} />
                                 </Col>
-                            </Form.Row>
+                            </Form.Row>     
+
+                            <Form.Row style={{marginBottom: "2em"}}>    
+                                <Col>
+                                    <Form.Label>Genre</Form.Label>
+                                    <Form.Control placeholder="Punk, Metal, etc." onChange={e => this.setState({ genre: e.target.value })} />
+                                </Col>
+                            </Form.Row> 
+
+                            <Form.Row style={{marginBottom: "2em"}}>    
+                                <Col>
+                                    <Form.Label>Profile Pic</Form.Label>
+                                    <Form.Control placeholder="Drop a URL from your FB prom pic" onChange={e => this.setState({ genre: e.target.value })} />
+                                </Col>
+                            </Form.Row> 
+                     
                         </Form>
                     </Form.Group>
                     <Form.Group size="lg" controlId="age">
@@ -105,7 +129,7 @@ export default class SignUp extends Component {
                         must not contain spaces, special characters, or emoji.
                     </Form.Text>
 
-                    <Button onClick={this.onSubmit} variant="outline-warning" type="submit" className="underhomebtn2 loginButtonSpace2 ">
+                    <Button onClick={this.onSubmit} variant="dark" type="submit">
                         Submit
                     </Button>
                 </Form>

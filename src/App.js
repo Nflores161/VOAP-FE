@@ -8,23 +8,53 @@ import Login from "./Component/Login";
 import SignUp from "./Component/SignUp";
 import ProfilePage from "./Container/ProfilePage";
 import './App.css';
+import ExploreContainer from "./Container/ExploreContainer";
+import UserIdPage from "./Component/UserIdPage";
 
 
 const App = () => {
 
   const [loggedInUser, setLoggedInUser] = useState([]);
   const [logInStatus, handleLogin] = useState(false);
+  const [usersCollection, setUsersCollection] = useState([]);
+  const [chosenGenre, selectGenre] = useState("");
 
+  //Logout Logic
   const logOut = () => {
     localStorage.clear()
     handleLogin(false)
     setLoggedInUser({})
   }
 
+
+  //Set current user
   useEffect(() => {
     if (localStorage.token !== "undefined")
     handleLogin(true)
   }, [])
+
+  //Get all users
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/users")
+    .then((resp) => resp.json())
+    .then((usersArr) => {
+      setUsersCollection(usersArr);
+    })
+  }, []);
+
+
+  const filterByGenre = (key) => {
+    if (key === "punk") selectGenre("punk");
+    else if (key === "metal") selectGenre("metal");
+    else if (key === "noise") selectGenre("noise");
+    else if (key === "electronic") selectGenre("electronic");
+    console.log("tab clicked")
+  };
+
+  const usersFilteredCollection = usersCollection.filter(
+    (user) => user.genre === chosenGenre
+  );
+
 
   return (
     <Router>
@@ -48,6 +78,17 @@ const App = () => {
       />
 
       <Route exact path='/myprofile' render={(routerProps) => (<ProfilePage {...routerProps} loggedInUser={loggedInUser} logInStatus={logInStatus}/>)}/>
+
+      <Route exact path='/users' render={(routerProps) => (<ExploreContainer {...routerProps} setUsersCollection={setUsersCollection} usersFilteredCollection={usersFilteredCollection} filterByGenre={filterByGenre}/> )}/>
+
+      <Route
+        exact
+        path="/users/:id"
+        render={(routerProps) => (
+          <UserIdPage {...routerProps}/>
+        )}
+      />  
+
     </Router>
   );
 };
