@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Container, Row, Col, Card } from 'react-bootstrap'
+import { Image, Container, Row, Col, Card, Button } from 'react-bootstrap'
 // import { Link } from 'react-router-dom';
 import CD from '../Component/images/istockphoto-153712857-612x612.jpeg'
-import LP from '../Component/images/the-white-album-529x532.jpeg'
-import Flyer from '../Component/images/TCLA42019.jpeg'
+import LP from '../Component/images/worn-4429101_960_720.png'
+import Flyer from '../Component/images/depositphotos_2355636-stock-photo-white-paper.jpeg'
 
 const UserIdPage = props => {
 
   const [currentUser, setUser] = useState({})
   const [userPhotos, setUserPhotos] = useState([])
-
-
+  const [albumPhoto, setAlbumPhoto] = useState("https://alchetron.com/cdn/anti-cimex-f160c6f2-41ca-497d-9f1b-6b568d197df-resize-750.jpg")
+  const [userInput, setUserInput] = useState("")
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/v1/users/${props.match.params.id}`)
@@ -32,6 +32,17 @@ const UserIdPage = props => {
     const userPhotosArr = userPhotos.filter(image => image.user_id === currentUser.id)
     console.log(userPhotosArr)
 
+    const inputChangedHandler = (event) => {
+      setUserInput(event.target.value);
+    }
+
+    const loadedArt = (e) => {
+      console.log(e)
+      let pic = e.target.currentSrc
+      setAlbumPhoto(pic)
+    }
+
+    const contactEmail = "mailto:" + currentUser.email
 
   return (
     <div style={{display: "flex", flexDirection: "column"}}>
@@ -42,32 +53,59 @@ const UserIdPage = props => {
         <h3>from</h3>
         <h1>{currentUser.location}</h1>
         <Image src={currentUser.profile_pic_url} rounded style={{height: "300px", width: "300px", objectFit: "contain"}}></Image>
+        <br></br>
+        <p>Dig the art? Shoot them an email here!</p>
+        <a href={contactEmail}>
+        <Button variant="outline-dark">Contact</Button>
+        </a>
       </div>
         
-      <div className="left_contentlist">
+      <div className="left_contentlist" style={{display: "flex", flexDirection:"column", justifyContent: "space-around"}}>
       <h1>Artists Panel</h1>
       <Container 
       className="itemconfiguration">
       <Row md={2}>
       {userPhotosArr.map(art => {
         return <Col>
-            <Card style={{marginTop: "1em"}}>
-          <Image  alt="alt text" src={art.image} key={art.id} fluid style={{width: "200px", height: "200px"}}/>
+            <Card style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "1em"}}>
+          <Image  alt="alt text" src={art.image} key={art.id} fluid style={{width: "200px", height: "200px"}} onClick={(e) => loadedArt(e)}/>
           </Card>
           </Col>
       })}
       </Row>
 
-      
     </Container> 
+    <h5 style={{textAlign: "center"}}>Click a photo to see {currentUser.name}'s art work in whatever format you need below!</h5>
    
       </div>
-      
       </div>
-      <div style={{display: "flex", justifyContent:"space-between", marginLeft: "2em", marginBottom: "10em"}}>
-      <Image alt="LP" src={LP} style={{height: "350px", width: "350px"}}/>
-      <Image alt="Flyer" src={Flyer} style={{height: "400px", width: "300px"}}/>
-      <Image alt="CD" src={CD} style={{height: "350px", width: "400px"}}/>
+
+      <div className="App">
+      <input type="text" onChange={(e) => inputChangedHandler(e)} 
+        value={userInput}/>
+      </div>  
+
+
+      <div style={{display: "flex", marginLeft: "2em", marginBottom: "10em", justifyContent: "center" }}>
+      
+      <div style={{position: "relative", left: -130, top: 0}}>
+        <Image alt="LP" src={LP} style={{position: "absolute", height: "400px", width: "600px"}}/>
+        <p style={{position: "absolute", height: "333px", width: "331px", top: "28px", left: "89px"}}>{userInput}</p>
+        <img alt="record cover" src={albumPhoto} style={{position: "absolute", height: "333px", width: "331px", top: "28px", left: "89px"}} className="cover"/>
+        
+      </div>  
+      
+      <div style={{marginLeft: "420px", position: "relative", left: 30, top: 0}}>
+        <Image alt="Flyer" src={Flyer} style={{height: "400px", width: "340px"}}/>
+        <img alt="record cover" src={albumPhoto} style={{position: "absolute", height: "398px", width: "335px", top: "1px", left: "3px"}} className="cover2"/>
+      </div>
+
+
+      <div style={{marginLeft: "50px", position: "relative", left: 30, top: 0}}>
+        <Image alt="CD" src={CD} style={{height: "350px", width: "400px"}}/>
+        <img alt="record cover" src={albumPhoto} style={{position: "absolute", height: "305px", width: "320px", top: "17px", left: "55px"}} className="cover3"/>
+      </div>
+
       </div>
       </div>
       

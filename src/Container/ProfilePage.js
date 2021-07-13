@@ -70,7 +70,23 @@ const userPhotoArray = art_image.filter(image => image.user_id === currentUserIn
           {currentUserInfo.bio}</h4>
       </div>
     </div>  
+
+    <Button variant="dark" onClick={() => setShowHide(!showHide)}>Add a flick</Button> 
+    {showHide ? 
+    <form style={{display: "flex", flexDirection: "column", maxWidth: "30%"}} onSubmit={handleSubmit}>
+      <label htmlFor="title">
+        Title<br></br>
+        <input type="text" name="title" />
+      </label>
+      <label htmlFor="image" >
+        Upload image
+        <input type="file" name="image" accept="image/*" />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+      : null}
       
+
     <Container>
       <h1>Photo Dump:</h1>
       <Row lg={4}>
@@ -86,20 +102,7 @@ const userPhotoArray = art_image.filter(image => image.user_id === currentUserIn
     </Container>  
 
   
-    {showHide ? 
-    <form style={{display: "flex", flexDirection: "column", maxWidth: "30%"}} onSubmit={handleSubmit}>
-      <label htmlFor="title">
-        Title<br></br>
-        <input type="text" name="title" />
-      </label>
-      <label htmlFor="image" >
-        Upload image
-        <input type="file" name="image" accept="image/*" />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
-      : null}
-      <Button variant="dark" onClick={() => setShowHide(!showHide)}>Add a flick</Button>
+    
   </div>
   
   );

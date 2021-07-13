@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Image } from 'react-bootstrap'
+import { Button, Image, Nav } from 'react-bootstrap'
+import { Link } from "react-router-dom";
 
 export default class FeaturedArtist extends Component {
 
@@ -18,12 +19,39 @@ export default class FeaturedArtist extends Component {
   }
 
   render(){
-    
+
+    const URL =  "users/" + this.state.featuredArtist.id
+        
+
     return (
-      <div style={{textAlign : "center", border: "bold", borderStyle: "solid", borderRadius: "15px 15px 15px 15px", display: "flex", flexDirection:"column", justifyContent: "space-between", width: "700px", padding: "5px", marginRight: "1em"}}>
-        <h1 className="secondHeader">
-          Featured Artist
+    <div style={{background: `url(https://papyrus.greenville.edu/wp-content/uploads/2018/10/7724229_hr9_steven_hanner_.jpg)`, maxWidth: "90%", borderRadius: "50px 50px 50px 50px"}}>
+
+      <div style={{textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", padding: "1em"}} >
+        <h1 style={{color: "red", fontSize: "5em",  maxWidth: "40%"}}>
+      Featured Artist
         </h1>
+          <h2 style={{color: "white"}}>{this.state.featuredArtist.name} from {this.state.featuredArtist.location} 
+        </h2>
+        
+        <Button variant="danger" style={{margin: "5px"}}>
+        <Nav.Link as={Link} to={URL}
+        style={{color:"white", textDecoration: "none"}}>
+          View Art
+        </Nav.Link>
+        </Button>
+        
+        <div class="polaroid">
+          <a title={this.state.featuredArtist.bio}>  
+          <Image alt="featured artist" style={{height: "300px", width: "350px", filter: "grayscale(100%)"}} src={this.state.featuredArtist.profile_pic_url} rounded/>
+          </a>
+        </div>
+      </div>
+    </div>  
+    )}
+}
+
+
+{/* <div style={{textAlign : "center", border: "bold", borderStyle: "solid", borderRadius: "15px 15px 15px 15px", display: "flex", flexDirection:"column", justifyContent: "space-between", width: "700px", padding: "5px", marginRight: "1em"}}>
           <h3>{this.state.featuredArtist.name} from {this.state.featuredArtist.location} </h3>
         <Image className="pulse" alt="featured artist" style={{height: "300px", width: "300px", filter: "grayscale(100%)"}} src={this.state.featuredArtist.profile_pic_url} rounded/>
 
@@ -34,6 +62,4 @@ export default class FeaturedArtist extends Component {
         <Button variant="outline-dark" style={{margin: "20px"}}>
           View Art
         </Button>
-      </div>  
-    )}
-}
+      </div>   */}
