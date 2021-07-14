@@ -99,7 +99,7 @@ const App = () => {
         exact
         path="/users/:id"
         render={(routerProps) => (
-          <UserIdPage {...routerProps}/>
+          <UserIdPage {...routerProps} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
         )}
       />  
 

@@ -3,6 +3,9 @@ import React, {useState, useEffect} from 'react';
 import { Button, Container, Row, Col, Card, Image } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import FavoritesContainer from './FavoritesContainer';
+import { faHeart} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const ProfilePage = props => {
@@ -10,16 +13,20 @@ const ProfilePage = props => {
   const [currentUserInfo, setCurrentUserInfo] = useState({})
   const [art_image, setArtImage] = useState([])
   const [showHide, setShowHide] = useState(false)
-  
+  const [favoriteArr, setFavorites] = useState([])
+  const [allUsers, setAllUsers] = useState([])
 
 
-const userPhotoArray = art_image.filter(image => image.user_id === currentUserInfo.id)
+
+  const userPhotoArray = art_image.filter(image => image.user_id === currentUserInfo.id)
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/v1/users/${localStorage.id}`)
     .then((res) => res.json())
-    .then((currentUserObj) => 
+    .then((currentUserObj) => {
         setCurrentUserInfo(currentUserObj)
+        setFavorites(currentUserObj.favorites)
+    }
     )
   }, [])
 
@@ -30,6 +37,21 @@ const userPhotoArray = art_image.filter(image => image.user_id === currentUserIn
         setArtImage(artImages)
     )
   }, [])
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/v1/users`)
+    .then((res) => res.json())
+    .then((userArr) =>
+      setAllUsers(userArr)
+    )
+  }, [])
+
+  // const favoriteArray = favoriteArr.map(fav => fav.favoritedUser_id)
+  
+
+  // const userFavCollection = allUsers.filter(user => user.favorites.favoritedUser_id === favoriteArr.favoritedUser_id)
+
+
 
 
 
@@ -62,7 +84,7 @@ const userPhotoArray = art_image.filter(image => image.user_id === currentUserIn
 
       <div style={{border: "2px solid black", padding: "1.5em", margin: "30px", borderRadius: "50px 50px 50px 50px", backgroundSize: "cover", backgroundColor: "white", opacity: "0.96", margin: "2em"}}>
         <h1 style={{opacity: "5", marginBottom: ".5em"}}>{currentUserInfo.name}'s Profile</h1>
-        <Image src={currentUserInfo.profile_pic_url} style={{height: "240px", width: "240px", opacity: "20", boxShadow: "0 10 10px black inset",  boxShadow: "0 4px 8px rgba(0, 0, 0, .7)", justifyContent: "space-between", border: "1px solid black"}} className="grow" roundedCircle></Image>
+        <Image src={currentUserInfo.profile_pic_url} style={{height: "240px", width: "240px", opacity: "20", boxShadow: "0 4px 8px rgba(0, 0, 0, .7)", justifyContent: "space-between", border: "1px solid black"}} className="grow" roundedCircle></Image>
       </div>
       <div style={{display: "flex", flexDirection: "column", justifyContent: "space-around", border: "2px solid black", padding: "2em", margin: "30px", borderRadius: "50px 50px 50px 50px", backgroundColor: "white", opacity: "0.96", margin: "1.6em"}}>
         <h1>My Info:</h1>
@@ -78,6 +100,15 @@ const userPhotoArray = art_image.filter(image => image.user_id === currentUserIn
       </div>
     
     </div>  
+
+    <div style={{display: "flex", maxWidth: "70%", border: "2px solid black", padding: "10px", margin: "30px", borderRadius: "60px 50px 60px 0px", boxShadow: "0 4px 8px rgba(0, 0, 0, .7)"}} className="serrated">
+      <div style={{display:"flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around"}}>
+        <h1 >Favorited Users</h1>
+        <FontAwesomeIcon icon={faHeart} size="5x" />
+      </div>
+      <FavoritesContainer allUsers={allUsers} favoriteArr={favoriteArr} />
+    </div>
+
 
     <Button variant="dark" onClick={() => setShowHide(!showHide)}>Add a flick</Button> 
     {showHide ? 

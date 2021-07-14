@@ -24,13 +24,13 @@ export default class FeaturedArtist extends Component {
         
 
     return (
-    <div style={{background: `url(https://papyrus.greenville.edu/wp-content/uploads/2018/10/7724229_hr9_steven_hanner_.jpg)`, maxWidth: "90%", borderRadius: "50px 50px 50px 50px"}}>
+    <div style={{background: `url(https://papyrus.greenville.edu/wp-content/uploads/2018/10/7724229_hr9_steven_hanner_.jpg)`, maxWidth: "80%", borderRadius: "50px 50px 50px 50px"}}>
 
       <div style={{textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", padding: "1em"}} >
-        <h1 style={{color: "red", fontSize: "5em",  maxWidth: "40%"}}>
+        <h1 style={{color: "red", fontSize: "5em",  maxWidth: "40%", textShadow: "2px 5px 4px #000000"}}>
       Featured Artist
         </h1>
-          <h2 style={{color: "white"}}>{this.state.featuredArtist.name} from {this.state.featuredArtist.location} 
+          <h2 style={{color: "white", textShadow: "2px 5px 4px #000000"}}>{this.state.featuredArtist.name} from {this.state.featuredArtist.location} 
         </h2>
         
         <Button variant="danger" style={{margin: "5px"}}>
