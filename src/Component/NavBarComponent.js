@@ -41,18 +41,20 @@ export default class NavBarComponent extends Component {
             </Button>
           ) : (
             <div>
-              <Button variant="primary-outline">
+              <Button variant="dark-outline">
                 <Nav.Link
                   as={Link}
                   to="/login"
+                  style={{ color: "black", textDecoration: "none" }}
                 >
                   Login
                 </Nav.Link>
               </Button>
-              <Button variant="outline-warning" className="loginButtonSpace">
+              <Button variant="outline-danger" className="loginButtonSpace">
                 <Nav.Link
                   as={Link}
                   to="/signup"
+                  style={{ color: "black", textDecoration: "none" }}
                 >
                   Sign Up
                 </Nav.Link>

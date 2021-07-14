@@ -10,6 +10,7 @@ import ProfilePage from "./Container/ProfilePage";
 import './App.css';
 import ExploreContainer from "./Container/ExploreContainer";
 import UserIdPage from "./Component/UserIdPage";
+import EditInfo from "./Component/EditInfo";
 
 
 const App = () => {
@@ -55,6 +56,19 @@ const App = () => {
     (user) => user.genre === chosenGenre
   );
 
+  const deactivate = (userid) => {
+    fetch(`http://localhost:3000/api/v1/users/${userid}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => console.log("Deleted"));
+
+    localStorage.clear();
+    handleLogin(false);
+    setLoggedInUser({});
+    // this.history.push("/home")
+  };
+
 
   return (
     <Router>
@@ -88,6 +102,18 @@ const App = () => {
           <UserIdPage {...routerProps}/>
         )}
       />  
+
+      <Route
+        exact
+        path="/editprofile"
+        render={(routerProps) => (
+          <EditInfo
+            {...routerProps}
+            setLoggedInUser={setLoggedInUser}
+            deactivate={deactivate}
+            />
+          )}
+        />  
 
     </Router>
   );

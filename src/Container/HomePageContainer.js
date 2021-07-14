@@ -9,11 +9,11 @@ import Rocker from "../Component/images/logo-guitarist-punk-rock-png-favpng-0UEh
  function HomePageContainer(setLoggedInUser, loggedInUser) {
 
   return(
-    <div>
+    <div style={{maxWidth: "95%", display: "flex", flexDirection: "column", alignContent: "center", justifyContent: "center", marginLeft: "3em"}}>
       <Jumbotron style={{textAlign : "center", color: "white"}}>
           <h1 style={{marginTop : "-.4em", marginBottom: "1.9em"}}><SplitText style={{fontFamily: `Permanent Marker, cursive`}} copy="V. O. A. P." role="heading" /></h1>
 
-          <h2 className="secondHeader" style={{marginBottom : "1em", marginTop : "-1em", letterSpacing: "7px", opacity: ".6"}}>Victims of An Art Page</h2> <img src={Rocker} alt="rocker dude" id="rocker" style={{marginBottom: "1em", marginLeft: "7em"}}/>
+          <h2 className="secondHeader" style={{marginBottom : "1em", marginTop : "-1em", letterSpacing: "7px", opacity: "2", color: "red", textShadow: "2px 5px 4px #000000", fontWeight: "bold" }}>Victims of An Art Page</h2> <img src={Rocker} alt="rocker dude" id="rocker" style={{marginBottom: "1em", marginLeft: "3em"}}/>
       </Jumbotron>
       <div>
 

@@ -63,7 +63,7 @@ const UserIdPage = props => {
       <div className="left_contentlist" style={{display: "flex", flexDirection:"column", justifyContent: "space-around"}}>
       <h1>Artists Panel</h1>
       <Container 
-      className="itemconfiguration">
+      className="itemconfiguration" style={{backgroundColor: "#F9F6F6"}}>
       <Row md={2}>
       {userPhotosArr.map(art => {
         return <Col>
@@ -80,28 +80,28 @@ const UserIdPage = props => {
       </div>
       </div>
 
-      <div className="App">
+      {/* <div className="App">
       <input type="text" onChange={(e) => inputChangedHandler(e)} 
         value={userInput}/>
-      </div>  
+      </div>   */}
 
 
-      <div style={{display: "flex", marginLeft: "2em", marginBottom: "10em", justifyContent: "center" }}>
+      <div style={{display: "flex", marginLeft: "2em", marginBottom: "10em", justifyContent: "center", maxWidth: "80%", marginTop: "2em"}}>
       
-      <div style={{position: "relative", left: -130, top: 0}}>
+      <div style={{position: "relative", left: -5, top: 0}}>
         <Image alt="LP" src={LP} style={{position: "absolute", height: "400px", width: "600px"}}/>
         <p style={{position: "absolute", height: "333px", width: "331px", top: "28px", left: "89px"}}>{userInput}</p>
         <img alt="record cover" src={albumPhoto} style={{position: "absolute", height: "333px", width: "331px", top: "28px", left: "89px"}} className="cover"/>
         
       </div>  
       
-      <div style={{marginLeft: "420px", position: "relative", left: 30, top: 0}}>
+      <div style={{marginLeft: "420px", position: "relative", left: 150, top: 0}}>
         <Image alt="Flyer" src={Flyer} style={{height: "400px", width: "340px"}}/>
         <img alt="record cover" src={albumPhoto} style={{position: "absolute", height: "398px", width: "335px", top: "1px", left: "3px"}} className="cover2"/>
       </div>
 
 
-      <div style={{marginLeft: "50px", position: "relative", left: 30, top: 0}}>
+      <div style={{marginLeft: "50px", position: "relative", left: 140, top: 0}}>
         <Image alt="CD" src={CD} style={{height: "350px", width: "400px"}}/>
         <img alt="record cover" src={albumPhoto} style={{position: "absolute", height: "305px", width: "320px", top: "17px", left: "55px"}} className="cover3"/>
       </div>

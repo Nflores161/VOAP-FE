@@ -4,7 +4,7 @@
 
 html, body {
   margin: auto;
-  max-width: 90%;
+  max-width: 95%;
 
   /* position: relative; */
 }
@@ -23,14 +23,14 @@ body:after {
 
 
 .jumbotron {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%,rgba(241, 170, 170, 0) 20%,rgb(255, 255, 255) 85%), url("https://cdn.mos.cms.futurecdn.net/rDoUdp5ASgqnTpYLGvkyDF-970-80.jpg.webp");
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%,rgba(241, 170, 170, 0) 20%,rgb(255, 255, 255) 85%), url("https://cdn-asia.uniteasia.org/uploads/2019/02/16a28aac-zyanose.jpg");
   background-size: cover;
   font-family: 'Permanent Marker', cursive;
   /* box-shadow: 0 0 10px black inset; */
   background-position: center;
-  background-size: cover;
 }
 
+/* https://cdn.mos.cms.futurecdn.net/rDoUdp5ASgqnTpYLGvkyDF-970-80.jpg.webp */
 
 #navSearchBar {
   margin-right: 5em;
@@ -337,4 +337,12 @@ h1 span span:nth-child(5n) { color: rgb(231, 12, 12); }
   -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
   box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
 }
+
+.grow { 
+  transition: all .2s ease-in-out; 
+  }
+  
+  .grow:hover { 
+  transform: scale(1.1); 
+  }
 

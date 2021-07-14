@@ -11,7 +11,7 @@ export default class ArtBlock extends Component {
 
     return (
      <div style={{background: `url(https://static01.nyt.com/images/2020/10/14/arts/07punkphotos-lead2/merlin_178096260_9ee6d1d4-ddd3-469a-a009-707a5a51d9a1-superJumbo.jpg)`, borderRadius: "50px 50px 50px 50px", display: "flex", justifyContent: "center", alignItems: "center"}}>
-      <div style={{textAlign : "center", display: "flex", flexDirection:"column", marginBottom : "5em", maxWidth: "60%", border:"solid black", padding: "4em", backgroundColor:"white", opacity: "0.9", marginTop: "5em"}}>
+      <div style={{textAlign : "center", display: "flex", flexDirection:"column", marginBottom : "5em", maxWidth: "60%", border:"solid black", padding: "2em", backgroundColor:"white", opacity: "0.9", marginTop: "5em", boxShadow: "2px 3px 20px black, 0 0 60px #DDDADA inset"}}>
         <h1 className="secondHeader2" style={{marginBottom: ".5em"}}>Art the way <span style={{color: "red"}}>you</span> want to see it</h1>
         <p style={{marginBottom: "4em"}}>Victims of An Art Page is a platform for artists, musicians, and promoters to come together, share, and find the perfect art work in the formats they need... </p>
 
