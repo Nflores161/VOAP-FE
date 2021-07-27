@@ -18,6 +18,7 @@ const ProfilePage = props => {
 
 
 
+
   const userPhotoArray = art_image.filter(image => image.user_id === currentUserInfo.id)
 
   useEffect(() => {
@@ -75,6 +76,17 @@ const ProfilePage = props => {
       .catch(console.error);
   }
 
+  // Deletes Favorite
+
+  const destroyFav = (favid) => {
+    // let favid = favoriteArr.map(fav => fav.id)
+    console.log(favid)
+    // fetch(`http://localhost:3000/api/v1/favorites/${favid}`, {
+    //   method: "DELETE",
+    // })
+    //   .then((r) => r.json())
+    //   .then(() => console.log("Deleted"));
+  }
 
 
   return (
@@ -106,33 +118,38 @@ const ProfilePage = props => {
         <h1 >Favorited Users</h1>
         <FontAwesomeIcon icon={faHeart} size="5x" />
       </div>
-      <FavoritesContainer allUsers={allUsers} favoriteArr={favoriteArr} />
+      <FavoritesContainer allUsers={allUsers} favoriteArr={favoriteArr} destroyFav={destroyFav}/>
     </div>
 
+    <div>
+    <Button variant="danger" onClick={() => setShowHide(!showHide)} style={{fontSize: "2.5em", margin: "2em"}}>CLICK TO ADD A FLICK</Button> 
 
-    <Button variant="dark" onClick={() => setShowHide(!showHide)}>Add a flick</Button> 
+
     {showHide ? 
-    <form style={{display: "flex", flexDirection: "column", maxWidth: "30%"}} onSubmit={handleSubmit}>
+    <div style={{border: "solid 2px black", borderRadius: "60px 50px 60px 0px", boxShadow: "0 4px 8px rgba(0, 0, 0, .7)", marginBottom: "4em"}}>
+    <form style={{marginBottom: "2em"}} onSubmit={handleSubmit} className="login">
       <label htmlFor="title">
         Title<br></br>
-        <input type="text" name="title" />
-      </label>
+        <input type="text" name="title" style={{marginBottom: "2em"}}/>
+      </label><br></br>
       <label htmlFor="image" >
         Upload image
-        <input type="file" name="image" accept="image/*" />
+        <input type="file" name="image" accept="image/*" style={{marginBottom: "2em"}}/>
       </label>
       <input type="submit" value="Submit" />
     </form>
+    </div>
       : null}
+    </div>
       
 
-    <Container>
-      <h1>Photo Dump:</h1>
+    <Container style={{marginBottom: "5em"}}>
+      <h1 style={{marginBottom: "1em"}}>Photo Dump:</h1>
       <Row lg={4}>
       {userPhotoArray.map(art => {
         return <Col>
-            <Card>
-          <Image  alt="alt text" src={art.image} key={art.id} fluid/>
+            <Card style={{marginBottom: "1em"}}>
+          <Image  style={{width:"300px", height: "300px"}} alt="alt text" src={art.image} key={art.id} fluid/>
           </Card>
           </Col>
    

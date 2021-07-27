@@ -43,6 +43,7 @@ export default class SignUp extends Component {
                   password: this.state.password,
                   location: this.state.location,
                   bio: this.state.bio,
+                  genre: this.state.genre,
                   profile_pic_url: this.state.profile_pic_url,
                 })
             })
@@ -95,7 +96,7 @@ export default class SignUp extends Component {
                             <Form.Row style={{marginBottom: "2em"}}>    
                                 <Col>
                                     <Form.Label>Profile Pic</Form.Label>
-                                    <Form.Control placeholder="Drop a URL from your FB prom pic" onChange={e => this.setState({ genre: e.target.value })} />
+                                    <Form.Control placeholder="Drop a URL from your FB prom pic" onChange={e => this.setState({ profile_pic_url: e.target.value })} />
                                 </Col>
                             </Form.Row> 
                      

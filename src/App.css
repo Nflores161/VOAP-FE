@@ -181,6 +181,19 @@ h1 span span:nth-child(5n) { color: rgb(231, 12, 12); }
   }
 }
 
+@media all and (min-width: 480px) {
+  .login {
+    padding: 60px 0;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
 /* Explore Container */
 
 .exploreBg {

@@ -10,7 +10,7 @@ export default class FavoritesContainer extends Component {
         <Container>
           <Row md={4} className="justify-content-md-center">
             {this.props.favoriteArr.map(fav => {
-            return <FavCard fav={fav} key={fav.id} allUsers={this.props.allUsers}favoriteArr={this.props.favoriteArr}/>})}
+            return <FavCard fav={fav} key={fav.id} allUsers={this.props.allUsers} favoriteArr={this.props.favoriteArr} destroyFav={this.props.destroyFav}/>})}
           </Row>  
         </Container>  
         </div>

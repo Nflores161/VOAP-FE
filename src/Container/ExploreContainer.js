@@ -30,7 +30,7 @@ export default class ExploreContainer extends Component {
             </div>
           </Tab>
 
-          <Tab key="punk" eventKey="punk" title="Punk" className="event-tab">
+          <Tab key="punk" eventKey="punk" title="Punk" className="event-tab" style={{ textDecoration: "none", color:"black" }}>
             <Container>
               <Row lg={2}>
                 {this.props.usersFilteredCollection.map((user) => (

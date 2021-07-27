@@ -50,6 +50,7 @@ const UserIdPage = props => {
 
 
     const addFavorite = () => {
+    
     fetch("http://localhost:3000/api/v1/favorite_user", {
       method: "POST",
       headers: {
@@ -71,7 +72,7 @@ const UserIdPage = props => {
 
   return (
     <div style={{display: "flex", flexDirection: "column"}}>
-    <div style={{display: "flex", border: "2px solid black", padding: "10px", margin: "30px", justifyContent: "space-around"}}>
+    <div style={{display: "flex", border: "2px solid black", borderRadius: "60px 50px 60px 0px", boxShadow: "0 4px 8px rgba(0, 0, 0, .7)", padding: "10px", margin: "30px", justifyContent: "space-around"}}>
 
       <div style={{display: "flex", flexDirection: "column", textAlign: "center"}}>
         <h1>{currentUser.name}</h1>
