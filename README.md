@@ -11,7 +11,7 @@
 # VOAP backend
 
 To run the application, the backend must run on [http://localhost:3000].
--Please Follow this link, clone down the repo, and run 'rails s' in the terminal of the rails app first.
+-Please Follow this link https://github.com/Nflores161/VOAP-BE clone down the repo, and run 'rails s' in the terminal of the rails app first.
 
 -After the rails server is running, proceed to the following instructions below 
 
